@@ -3,6 +3,6 @@ from Principal.views import inicio, usuarios
 from django.contrib import admin
 
 urlpatterns = [
-    path("", inicio),
+    path("", inicio, name="Inicio"),
     path('usuarios/',usuarios,name="Usuarios")
 ]
