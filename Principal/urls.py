@@ -1,8 +1,8 @@
 from django.urls import path
-from Principal.views import inicio, usuarios
+from Principal.views import inicio, servicios
 from django.contrib import admin
 
 urlpatterns = [
     path("", inicio, name="Inicio"),
-    path('usuarios/',usuarios,name="Usuarios")
+    path('servicios/',servicios,name="Servicios")
 ]

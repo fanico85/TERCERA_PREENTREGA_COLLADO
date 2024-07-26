@@ -1,4 +1,4 @@
-from Principal.models import Usuario
+from Principal.models import Usuario, Servicio
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -12,5 +12,5 @@ def usuario(request, nombre, usuario):
 def inicio(request):
     return render(request, "Principal/index.html")
 
-def usuarios(request):
-    return render(request, "Principal/usuarios.html")
+def servicios(request):
+    return render(request, "Principal/servicios.html")

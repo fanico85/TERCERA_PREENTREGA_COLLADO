@@ -6,4 +6,7 @@ class Usuario(models.Model):
     nombre = models.CharField(max_length=40)
     usuario = models.CharField(max_length=40)
 
+class Servicio(models.Model):
+    nombre = models.CharField(max_length=40)
+    descripcion = models.CharField(max_length=40)
 
