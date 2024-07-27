@@ -93,13 +93,12 @@ git add .
 git commit -m "segundo commit"
 git push
 
-#queda pendiente como mergear las ramas con el main!!!!!!!!!!!
-
+#para mergear las ramas con el main, hacemos un pull request en github directamente 
 #si luego seguimos modificando el proyecto, lo vinculamos:
 git remote add origin https://github.com/fanico85/claseDjango.git
 
 #nos movemos a la rama correspondiente main u otra:
-git checkout rama_17
+git checkout main
 
 #traemos la data 
 git pull

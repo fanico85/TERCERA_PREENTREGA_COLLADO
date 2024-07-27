@@ -13,19 +13,21 @@
         <div class="card mb-4">
             <div class="card-body">
                 <p class="mb-0">
-                    Estamos buscando el servicio
-                    <code>{{servicio_nombre}}</code>
-                    que se describe                     
+                    En esta pagina agregaremos nuevos
+                    <code>servicios</code>
+                    que realiza 
+                    <code>Nails Factory</code>
+                    junto a una descripcion.
                 </p>
-                {%if servicios %}
-                <ul>
-                    {%for servicio in servicios %}
-                    <li> Servicio: {{servicio.ser_nombre}}</li>
-                    <li> Descripcion: {{servicio.ser_descripcion}}</li>
-                    <li> Duracion: {{servicio.ser_duracion}}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
+                <p class="mb-0">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <table>
+                            {{ mi_formulario.as_table }}
+                        </table>
+                        <input type="submit" value="Buscar">
+                    </form>
+                </p>    
             </div>
         </div>
         <div style="height: 100vh"></div>
