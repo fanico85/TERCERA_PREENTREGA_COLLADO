@@ -1,146 +1,36 @@
-#creo entorno virtual en una nueva carpeta vacia que representará mi proyecto
-#Tercera_preentrega_Collado
+=======================================================TERCERA PREENTREGA=====================================================
 
-#valido que version tengo de python y de Django
-python --version 
-python -m django --version
+Requirements:
+#Python 3.11.9
+#django 5.0.6
+La aplicacion es solo compatible con el explorador IE=edge, debido el temaplate conseguido. Se podrá acceder mediante la ruta: http://127.0.0.1:8000/Principal/
+El servidor deberá levantarse con "python manage.py runserver" desde la ubicacion "Tercera_preentrega_Collado\Nails_factory"
 
-#creamos entorno virtual con python 3.11.9
-pipenv --python 3.11.9
-pipenv  shell
+Introduccion:
+La aplicacion tiene por objetivo facilitar la administracion de un negocio dedicado a brindar servicios de Belleza y Manicuria de uñas.
 
-#agregamos archivo requirements.txt con el siguiente contenido:
-# #Python 3.11.9
-# django==5.0.6
-
-#instalamos django en el entorno virtual
-pipenv install -r requirements.txt
-
-#creamos un proyecto nuevo de Django
-django-admin startproject Nails_factory
-cd Nails_factory
-
-#creamos la primera aplicacion
-python manage.py startapp Principal
-
-#levanta o genera una nueva base de datos 
-python manage.py migrate 
-
-#levantar proyecto en servidor y ctrl+C cerramos servidor para validar que funcione
-python manage.py runserver
-
-#en el settings.py configurar el nombre de la nueva aplicacion, por ejemplo Principal 
-
-#URLS 
-#copiarlas desde el original y hacer los imports en urls.py
-
-#creamos las vistas en views.py que renderizaran los archivos htmls
-
-#creamos la carpeta templates que contendra los htmls 
-
-#iniciamos git
-git init
-
-#creamos el archivo .gitignore con el contenido a ignorar:
-# __pycache__/
-# *.pyc
-
-#cargamos todos los archivos
-git add .
-
-#realizamos primer commit a main
-git commit -m "primer commit"
-
-#luego de crear o validar que exista el proyecto en github lo vinculamos con:
-git remote add origin https://github.com/fanico85/NailsFactory.git
-
-#cambiamos por primera vez el nombre de la rama Master por main
-git branch -M main
-
-#subir ese primer codigo a git 
-git push -u origin main
-
-#creamos una rama nueva y nos ubicamos ahi
-git checkout -b rama_1
-
-#para movernos entre las ramas, hacemos:
-git checkout nombre_rama
-
-#volvemos a django, generamos una vista, creando el archivo views.py en la carpeta del proyecto y le importamos las librearias necesarias para que se ejecuten las funciones
-#en urls.py agregamos los paths que llaman a una determinada funcion de views
-
-#luego de guardar los cambios podemos levantar el servidor para validar el funcionamiento
-python manage.py runserver
-
-#podemos generar plantillas para separar la vista de la estética. Django se basa en el Modelo Vista Template
-#creamos en el proyecto la carpeta plantillas
-#luego dentro de plantillas creamos el archivo index.html o con el nombre que querramos
-#dentro del index.html ponemos ! y presionamos enter -> nos genera todo un contenido de HTML basico para completar, con header, body, estética
-#luego en views importamos las librearias necesarias para trabajar con Template
-#generaremos la funcion con lineas necesarias, como abrir el html, generar la plantilla, cerrar html, creamos el contexto, y renderizamos la plantilla
-
-#volvemos a git para guardar los cambios de la nueva rama
-#valimos el estado
-git status
-
-#enviamos la nueva rama con:
-git add .
-git commit -m "segundo commit"
-git push --set-upstream origin rama_18
-
-#si enviamos los cambios a una rama existente, seria:
-git add .
-git commit -m "segundo commit"
-git push
-
-#para mergear las ramas con el main, hacemos un pull request en github directamente 
-#si luego seguimos modificando el proyecto, lo vinculamos:
-git remote add origin https://github.com/fanico85/claseDjango.git
-
-#nos movemos a la rama correspondiente main u otra:
-git checkout main
-
-#traemos la data 
-git pull
-
-#creamos una rama nueva y nos ubicamos ahi
-git checkout -b rama_18
-
-#luego repetimos los mismos pasos 
-#enviamos la nueva rama con:
-git add .
-git commit -m "nuevo commit"
-git push --set-upstream origin rama_18
-
-#si enviamos los cambios a una rama existente, seria:
-git add .
-git commit -m "otro commit"
-git push
-
-#Ahora agregamos o creamos una nueva aplicacion
-python manage.py startapp NombreApi
-
-#se agrega el nombre de la app en settings.py y completa el modelo con las clases
-#procemos a generar el codigo necesario para migrarlos luego a la base
-python manage.py makemigrations
-
-#migramos las tablas a la base con:
-python manage.py migrate
+Para esta preentrega, contaremos con:
+    - Inicio -> informacion principal real (tabla de Servicios y Cards de indicadores) mas informacion simulada en dos graficos
+    - servicios
+        * Agregar -> permite registrar un nuevo servicio (por el momento no hay control de duplicados). Se debe ingresar la duracion del servicios en minutos (entre 10 y 120)
+        * Buscar -> permite buscar aquellos servicios que contienen la palabra ingresada
+        * Mostrar todos -> tabla con todos los servicios registrados
+    - Gastos
+        * Agregar -> permite registrar un nuevo gasto realizado por el negocio (por el momento no hay control de duplicado y limite de fechas)
+        * Mostrar todos -> tabla con todos los gastos realizados
+    - Insumos
+        * Agregar -> permite registrar un nuevo insumo y su stock (por el momento no hay control de duplicados). El stock ingresado es el real, y ademas se incluye el 
+          sotck minimo (para las alertas de reposicion)
+        * Mostrar todos -> tabla con todos los insumos registrados y su stock real
 
 
-
-#creamos super usuarios
-python manage.py createsuperuser  
-#test y 12345678AB
-
-
-
-#Otros comandos
-#cuando queremos descargar todo un proyecto, se clona con
-git clone https://github.com/fanico85/claseDjango.git
-
-
-
-
-
-
+Aclaraciones:
+    - Las Cards del inicio son:
+        * Servicios disponibles -> es un contador de los servicios disponibles para los clientes; se puede navegar hasta una tabla con todos los servicios registrados
+        * Gastos realizados -> es una sumatoria de todos los gastos realizados por el negocio (a futuro, solo incluiran los gastos del mes en curso). Actualmente la card
+          esta en color azul, si supera los $700.000 se pondra en amarilla y si supera los $720.000 se pintará de rojo
+        * Servicios realizados -> a futuro mostrara un contador de la cantidad de servicios realizados por los clientes durante el mes en curso
+        * Insumos con Stock minimo -> es un contador de insumos que tienen un sotck por debajo de lo recomendado; se puede navegar hasta una tabla con todos los insumos 
+          registrados; a futuro, la tabla tendra solo los insumos con stock minimo. Se pinta de azul cuando todos los insumos tienen un stock recomendado. se pinta de rojo
+          cuando al menos 1 insumo tiene menos del stock minimo.
+          

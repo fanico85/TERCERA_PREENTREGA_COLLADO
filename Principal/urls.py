@@ -7,8 +7,6 @@ urlpatterns = [
 ]
 
 servicio_urls = [
-    #path('servicio-formulario-busqueda/',views.servicio_formulario_busqueda, name = "ServicioFormularioBusqueda"),
-    #path('servicios/',views.servicios,name="Servicios"),
     path('servicio-agregar/',views.servicio_formulario, name = "ServicioAgregar"),
     path('servicio-buscar/',views.servicio_buscar, name = "ServicioBuscar"),
     path('servicio-todos/',views.servicio_todos, name = "ServicioTodos")

@@ -106,9 +106,9 @@ def inicio(request):
         for gasto in gastos:                     
             suma += gasto.gas_monto     
         
-        if suma > 6000 and suma < 10000:
+        if suma > 700000 and suma < 720000:
             color_tarj_gastos = "card bg-warning text-white mb-4"
-        elif suma > 10000:
+        elif suma > 720000:
             color_tarj_gastos = "card bg-danger text-white mb-4"
 
         #INSUMOS
