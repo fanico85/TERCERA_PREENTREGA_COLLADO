@@ -1,0 +1,63 @@
+{% extends 'Principal/base.html' %}
+
+{% load static %}
+
+{% block main %}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Insumos</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'Inicio' %}">Inicio</a></li>
+            <li class="breadcrumb-item active">Todos</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Insumos existentes: <code>{{contador}}</code>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Nombre</th>
+                                    <th>Marca</th> 
+                                    <th>Descripcion</th>                                       
+                                    <th>Stock</th>                                        
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Nombre</th>
+                                    <th>Marca</th> 
+                                    <th>Descripcion</th>                                       
+                                    <th>Stock</th> 
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                {%if insumos %}
+                                    {%for insumo in insumos %}
+                                        <tr>
+                                            <td> {{insumo.ins_codigo}} </td>
+                                            <td> {{insumo.ins_nombre}} </td>
+                                            <td> {{insumo.ins_marca}}</td>
+                                            <td> {{insumo.ins_descripcion}}</td>
+                                            <td> {{insumo.ins_stock.st_actual}}</td>                                           
+                                        </tr>
+                                    {% endfor %}                                        
+                                {% endif %}    
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div style="height: 100vh"></div>
+        <div class="card mb-4"><div class="card-body">Sitio en construcción</div></div>
+    </div>
+</main>
+    {% endblock main %}

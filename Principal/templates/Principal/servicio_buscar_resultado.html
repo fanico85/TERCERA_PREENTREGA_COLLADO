@@ -1,0 +1,49 @@
+{% extends 'Principal/base.html' %}
+
+{% load static %}
+
+{% block main %}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Servicios</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'Inicio' %}">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'ServicioBuscar' %}">Buscar</a></li>
+            <li class="breadcrumb-item active">Resultado</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p class="mb-0">
+                    Estamos buscando el servicio
+                    <code>{{servicio_nombre}}</code>
+                    que se describe                     
+                </p>
+                <p></p>
+                {%if servicios %}
+                <ul>
+                    <div class="row">
+                        {%for servicio in servicios %}    
+                        
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-header">
+                                    Servicio
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">{{servicio.ser_nombre}}</li>
+                                    <li class="list-group-item">{{servicio.ser_descripcion}}.</li>
+                                    <li class="list-group-item">Duracion: {{servicio.ser_duracion}}</li>
+                                    </ul>
+                                </div>  
+                            </div>                                                        
+                        {% endfor %}
+                    </div>  
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        <div style="height: 100vh"></div>
+        <div class="card mb-4"><div class="card-body">Sitio en construcción</div></div>
+    </div>
+</main>
+    {% endblock main %}

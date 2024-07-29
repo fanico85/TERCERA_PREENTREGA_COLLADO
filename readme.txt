@@ -122,7 +122,7 @@ python manage.py startapp NombreApi
 
 #se agrega el nombre de la app en settings.py y completa el modelo con las clases
 #procemos a generar el codigo necesario para migrarlos luego a la base
-python manage.py makemigrations Principal
+python manage.py makemigrations
 
 #migramos las tablas a la base con:
 python manage.py migrate
