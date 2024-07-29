@@ -4,7 +4,7 @@ Requirements:
 #Python 3.11.9
 #django 5.0.6
 La aplicacion es solo compatible con el explorador IE=edge, debido el temaplate conseguido. Se podrá acceder mediante la ruta: http://127.0.0.1:8000/Principal/
-El servidor deberá levantarse con "python manage.py runserver" desde la ubicacion "Tercera_preentrega_Collado\Nails_factory"
+El servidor deberá levantarse con "python manage.py runserver" desde la ubicacion "TERCERA_PREENTREGA_COLLADO"
 
 Introduccion:
 La aplicacion tiene por objetivo facilitar la administracion de un negocio dedicado a brindar servicios de Belleza y Manicuria de uñas.
